@@ -1,0 +1,127 @@
+
+{% extends "base.html" %}
+
+{% block title %}Explore Destinations | TravelEase{% endblock %}
+
+{% block content %}
+
+{% set destination_images = [
+    "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+] %}
+
+<section class="destinations-hero">
+    <div class="container">
+        <span class="destinations-eyebrow">
+            <i class="bi bi-globe-asia-australia"></i>
+            EXPLORE THE WORLD WITH TRAVELEASE
+        </span>
+        <h1>Discover Amazing <span>Destinations</span></h1>
+        <p>Find beautiful places, explore new cultures, and plan your next adventure.</p>
+
+        <form method="GET"
+              action="{{ url_for('main.destinations') }}"
+              class="destination-search">
+
+            <i class="bi bi-search"></i>
+
+            <input type="text"
+                   name="q"
+                   aria-label="Search destinations"
+                   placeholder="Search by destination, city, or country..."
+                   value="{{ request.args.get('q', '') }}">
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</section>
+
+<div class="container destinations-page py-5">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+        <div>
+            <h2 class="destination-section-title">Places Worth Exploring</h2>
+            <p class="text-muted mb-0">
+                Find your next favourite place.
+            </p>
+        </div>
+
+        <span class="destination-count">
+            {{ destinations|length }}
+            destination{% if destinations|length != 1 %}s{% endif %} found
+        </span>
+    </div>
+
+    <div class="row g-4">
+
+        {% for destination in destinations %}
+        <div class="col-md-6 col-xl-4">
+            <article class="destination-card h-100">
+
+                <div class="destination-image-wrap">
+                    <img
+                        src="{{ destination_images[loop.index0 % (destination_images|length)] }}"
+                        alt="{{ destination.name }}"
+                        class="destination-image"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/900x600/eaf2ff/244477?text=Explore+with+TravelEase';">
+
+                    <span class="destination-image-label">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        {{ destination.country }}
+                    </span>
+                </div>
+
+                <div class="destination-card-body">
+                    <h3>{{ destination.name }}</h3>
+
+                    <p class="destination-city">
+                        <i class="bi bi-pin-map-fill"></i>
+                        {{ destination.city }}, {{ destination.country }}
+                    </p>
+
+                    <p class="destination-description">
+                        {{ destination.description|default('Explore this destination and create unforgettable travel memories.', true)|truncate(120, true, '...') }}
+                    </p>
+
+                    {% if destination.best_time %}
+                    <div class="destination-best-time">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>
+                            <strong>Best time to visit</strong><br>
+                            {{ destination.best_time }}
+                        </span>
+                    </div>
+                    {% endif %}
+
+                    <a href="{{ url_for('main.packages', q=destination.city) }}"
+                       class="btn btn-primary destination-button">
+                        Explore Packages
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+
+            </article>
+        </div>
+
+        {% else %}
+        <div class="col-12">
+            <div class="destination-empty-state text-center">
+                <i class="bi bi-map"></i>
+                <h3>No destinations found</h3>
+                <p>Try searching for another city or country.</p>
+                <a href="{{ url_for('main.destinations') }}"
+                   class="btn btn-primary">
+                    View All Destinations
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

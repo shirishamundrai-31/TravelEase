@@ -1,0 +1,115 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ package.name }} | TravelEase{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+
+    <a href="{{ url_for('main.packages') }}"
+       class="btn btn-outline-secondary mb-4">
+        ← Back to Packages
+    </a>
+
+    <div class="row g-4">
+
+        <!-- Package information -->
+        <div class="col-lg-7">
+            <div class="package-detail-card p-4">
+
+                <div class="package-detail-banner mb-4">
+                    <span>✈️</span>
+                    <span>Discover Your Next Destination</span>
+                </div>
+
+                <h1 class="fw-bold">{{ package.name }}</h1>
+
+                <p class="text-muted">
+                    📍 {{ package.destination.city }},
+                    {{ package.destination.country }}
+                </p>
+
+                <div class="row g-3 my-3">
+                    <div class="col-6">
+                        <div class="detail-info">
+                            <small>Duration</small>
+                            <h5>{{ package.duration_days }} days</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="detail-info">
+                            <small>Price per person</small>
+                            <h5>₹{{ "%.2f"|format(package.price) }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>About This Package</h4>
+                <p>{{ package.description }}</p>
+
+                <h5>Destination Information</h5>
+                <p>{{ package.destination.description }}</p>
+
+                <p>
+                    <strong>Best time to visit:</strong>
+                    {{ package.destination.best_time or "Contact us for details" }}
+                </p>
+
+                <p>
+                    <strong>Maximum group size:</strong>
+                    {{ package.max_people }} people
+                </p>
+            </div>
+        </div>
+
+        <!-- Booking form -->
+        <div class="col-lg-5">
+            <div class="booking-card p-4">
+                <h3 class="fw-bold mb-2">Book Your Trip</h3>
+                <p class="text-muted">
+                    Choose your travel date and number of travellers.
+                </p>
+
+                {% if current_user.is_authenticated %}
+                    <form method="POST"
+                          action="{{ url_for('main.book_package',
+                          package_id=package.id) }}">
+
+                        <div class="mb-3">
+                            <label class="form-label">Travel Date</label>
+                            <input type="date"
+                                   name="travel_date"
+                                   class="form-control"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Number of People</label>
+                            <input type="number"
+                                   name="people"
+                                   class="form-control"
+                                   min="1"
+                                   max="{{ package.max_people }}"
+                                   value="1"
+                                   required>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Confirm Booking
+                        </button>
+                    </form>
+                {% else %}
+                    <p>Please log in to book this package.</p>
+                    <a href="{{ url_for('main.login') }}"
+                       class="btn btn-primary w-100">
+                        Login to Continue
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

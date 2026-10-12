@@ -1,0 +1,115 @@
+
+{% extends "base.html" %}
+
+{% block title %}Edit Itinerary | TravelEase{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-md-5">
+
+                    <h2 class="fw-bold mb-2">Edit Your Itinerary</h2>
+                    <p class="text-secondary mb-4">
+                        Update your trip details below.
+                    </p>
+
+                    <form method="POST"
+                          action="{{ url_for('main.edit_itinerary',
+                                             itinerary_id=itinerary.id) }}">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">
+                                Trip Name
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="name"
+                                name="name"
+                                value="{{ itinerary.name }}"
+                                maxlength="120"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="destination" class="form-label">
+                                Destination
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="destination"
+                                name="destination"
+                                value="{{ itinerary.destination }}"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="start_date" class="form-label">
+                                    Start Date
+                                </label>
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="start_date"
+                                    name="start_date"
+                                    value="{{ itinerary.start_date.isoformat() }}"
+                                    required
+                                >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="end_date" class="form-label">
+                                    End Date
+                                </label>
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="end_date"
+                                    name="end_date"
+                                    value="{{ itinerary.end_date.isoformat() }}"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="notes" class="form-label">
+                                Travel Notes
+                            </label>
+                            <textarea
+                                class="form-control"
+                                id="notes"
+                                name="notes"
+                                rows="4"
+                                maxlength="2000"
+                            >{{ itinerary.notes or "" }}</textarea>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-1"></i>
+                                Save Changes
+                            </button>
+
+                            <a href="{{ url_for('main.itineraries') }}"
+                               class="btn btn-outline-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,124 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    {% if mode == "register" %}Register | TravelEase{% else %}Login | TravelEase{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="text-center mb-4">
+                        <i class="bi bi-airplane-engines-fill text-primary display-4"></i>
+
+                        <h2 class="fw-bold mt-3">
+                            {% if mode == "register" %}
+                                Create Account
+                            {% else %}
+                                Welcome Back
+                            {% endif %}
+                        </h2>
+
+                        <p class="text-secondary">
+                            {% if mode == "register" %}
+                                Join TravelEase and plan your next trip.
+                            {% else %}
+                                Log in to continue your travel journey.
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <form method="POST"
+                          action="{% if mode == 'register' %}{{ url_for('main.register') }}{% else %}{{ url_for('main.login') }}{% endif %}">
+
+                        {% if mode == "register" %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">
+                                Username
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="username"
+                                name="username"
+                                required
+                                maxlength="80"
+                                autocomplete="username"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Email address
+                            </label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="email"
+                                name="email"
+                                required
+                                autocomplete="email"
+                            >
+                        </div>
+                        {% else %}
+                        <div class="mb-3">
+                            <label for="identity" class="form-label">
+                                Username or email
+                            </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="identity"
+                                name="identity"
+                                required
+                                autocomplete="username"
+                            >
+                        </div>
+                        {% endif %}
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                required
+                                {% if mode == "register" %}minlength="8"{% endif %}
+                                autocomplete="{% if mode == 'register' %}new-password{% else %}current-password{% endif %}"
+                            >
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            {% if mode == "register" %}
+                                Create Account
+                            {% else %}
+                                Login
+                            {% endif %}
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        {% if mode == "register" %}
+                            Already have an account?
+                            <a href="{{ url_for('main.login') }}">Login</a>
+                        {% else %}
+                            Don't have an account?
+                            <a href="{{ url_for('main.register') }}">Register</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

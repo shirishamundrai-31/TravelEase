@@ -1,0 +1,227 @@
+
+{% extends "base.html" %}
+
+{% block title %}Explore Tour Packages | TravelEase{% endblock %}
+
+{% block content %}
+
+{% set travel_images = [
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80"
+] %}
+
+<section class="packages-hero">
+    <div class="container">
+        <span class="packages-eyebrow">
+            <i class="bi bi-compass"></i> YOUR NEXT ADVENTURE STARTS HERE
+        </span>
+        <h1>Find Your Perfect <span>Getaway</span></h1>
+        <p>Explore amazing destinations and discover a trip made for you.</p>
+    </div>
+</section>
+
+<div class="container packages-page py-5">
+
+    <!-- Search and filters -->
+    <div class="package-filter-panel mb-4">
+        <form method="GET" action="{{ url_for('main.packages') }}">
+            <div class="row g-3 align-items-end">
+
+                <div class="col-lg-4 col-md-6">
+                    <label for="packageSearch" class="form-label">
+                        Destination or package
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input
+                            id="packageSearch"
+                            type="text"
+                            name="q"
+                            class="form-control"
+                            placeholder="Search city, country, package..."
+                            value="{{ request.args.get('q', '') }}">
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <label for="maxPrice" class="form-label">
+                        Maximum budget (₹)
+                    </label>
+                    <input
+                        id="maxPrice"
+                        type="number"
+                        name="max_price"
+                        min="0"
+                        step="100"
+                        class="form-control"
+                        placeholder="e.g. 10000"
+                        value="{{ request.args.get('max_price', '') }}">
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <label for="duration" class="form-label">
+                        Trip duration
+                    </label>
+                    <select id="duration" name="duration" class="form-select">
+                        <option value="">Any duration</option>
+                        <option value="2" {% if request.args.get('duration') == '2' %}selected{% endif %}>Up to 2 days</option>
+                        <option value="5" {% if request.args.get('duration') == '5' %}selected{% endif %}>Up to 5 days</option>
+                        <option value="7" {% if request.args.get('duration') == '7' %}selected{% endif %}>Up to 7 days</option>
+                        <option value="14" {% if request.args.get('duration') == '14' %}selected{% endif %}>Up to 14 days</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <label for="sort" class="form-label">Sort by</label>
+                    <select id="sort" name="sort" class="form-select">
+                        <option value="price_low"
+                            {% if request.args.get('sort', 'price_low') == 'price_low' %}selected{% endif %}>
+                            Price: Low to High
+                        </option>
+                        <option value="price_high"
+                            {% if request.args.get('sort') == 'price_high' %}selected{% endif %}>
+                            Price: High to Low
+                        </option>
+                        <option value="name"
+                            {% if request.args.get('sort') == 'name' %}selected{% endif %}>
+                            Package Name
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-lg-2 col-md-6 d-grid">
+                    <button type="submit"
+                            class="btn btn-primary package-filter-btn">
+                        <i class="bi bi-sliders"></i> Find Trips
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="mt-3">
+                <a class="package-clear-link"
+                   href="{{ url_for('main.packages') }}">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Clear filters
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results heading -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+        <div>
+            <h2 class="package-section-title">Explore Our Packages</h2>
+            <p class="text-muted mb-0">
+                Choose your destination and start planning.
+            </p>
+        </div>
+
+        <span class="package-result-label">
+            {{ packages|length }}
+            package{% if packages|length != 1 %}s{% endif %} found
+        </span>
+    </div>
+
+    <!-- Package cards -->
+    <div class="row g-4">
+
+        {% for package in packages %}
+        <div class="col-md-6 col-xl-4">
+            <article class="package-card h-100">
+
+                <div class="package-image-wrap">
+                    <img
+                        src="{{ travel_images[loop.index0 % (travel_images|length)] }}"
+                        alt="{{ package.name }} travel destination"
+                        class="package-image"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/900x600/eaf2ff/244477?text=TravelEase+Trip';">
+
+                    <span class="package-image-badge">
+                        <i class="bi bi-airplane"></i> Tour Package
+                    </span>
+                </div>
+
+                <div class="package-card-body">
+
+                    <div>
+                        <h3 class="package-card-title">
+                            {{ package.name }}
+                        </h3>
+
+                        {% if package.destination %}
+                        <p class="package-location">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            {{ package.destination.city }},
+                            {{ package.destination.country }}
+                        </p>
+                        {% endif %}
+                    </div>
+
+                    <p class="package-description">
+                        {{ package.description|default(
+                            'Discover beautiful places and create unforgettable travel memories.',
+                            true
+                        )|truncate(115, true, '...') }}
+                    </p>
+
+                    <div class="package-info-row">
+                        <span>
+                            <i class="bi bi-calendar2-week"></i>
+                            {{ package.duration_days }} days
+                        </span>
+                        <span>
+                            <i class="bi bi-people"></i>
+                            Up to {{ package.max_people }} people
+                        </span>
+                    </div>
+
+                    <div class="package-card-footer">
+                        <div>
+                            <span class="package-price-caption">
+                                Starting from
+                            </span>
+                            <div class="package-price">
+                                ₹{{ "%.2f"|format(package.price|float) }}
+                            </div>
+                            <span class="package-price-caption">
+                                per person
+                            </span>
+                        </div>
+
+                        <a
+                            href="{{ url_for('main.package_detail', package_id=package.id) }}"
+                            class="btn btn-primary package-view-btn">
+                            View Package
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </article>
+        </div>
+
+        {% else %}
+        <div class="col-12">
+            <div class="package-empty-state text-center">
+                <i class="bi bi-map"></i>
+                <h3 class="mt-3">No packages found</h3>
+                <p>Try another destination or adjust your filters.</p>
+                <a href="{{ url_for('main.packages') }}"
+                   class="btn btn-primary">
+                    View All Packages
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

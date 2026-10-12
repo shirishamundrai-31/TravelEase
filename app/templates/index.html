@@ -1,0 +1,267 @@
+
+{% extends "base.html" %}
+
+{% block title %}TravelEase | Discover Your Next Adventure{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="travel-hero rounded-4 mb-5">
+    <div class="hero-overlay rounded-4">
+        <div class="hero-content">
+            <span class="badge bg-light text-primary mb-3">
+                Your journey starts here
+            </span>
+
+            <h1 class="display-4 fw-bold">
+                Explore the World,<br>
+                One Journey at a Time
+            </h1>
+
+            <p class="lead mt-3 mb-4">
+                Discover amazing destinations, find your perfect stay,
+                and plan unforgettable adventures with TravelEase.
+            </p>
+
+            <div class="d-flex flex-wrap gap-3">
+                <a href="{{ url_for('main.packages') }}"
+                   class="btn btn-light btn-lg text-primary fw-semibold">
+                    Explore Packages
+                    <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+
+                <a href="{{ url_for('main.destinations') }}"
+                   class="btn btn-outline-light btn-lg">
+                    Discover Destinations
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Links -->
+<section class="row g-3 mb-5">
+
+    <div class="col-6 col-md-3">
+        <a href="{{ url_for('main.packages') }}"
+           class="quick-link-card">
+            <i class="bi bi-map"></i>
+            <span>Tour Packages</span>
+        </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <a href="{{ url_for('main.hotels') }}"
+           class="quick-link-card">
+            <i class="bi bi-building"></i>
+            <span>Hotels</span>
+        </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <a href="{{ url_for('main.flights') }}"
+           class="quick-link-card">
+            <i class="bi bi-airplane"></i>
+            <span>Flights</span>
+        </a>
+    </div>
+
+    <div class="col-6 col-md-3">
+        <a href="{{ url_for('main.guides') }}"
+           class="quick-link-card">
+            <i class="bi bi-person-badge"></i>
+            <span>Tour Guides</span>
+        </a>
+    </div>
+
+</section>
+
+<!-- Featured Destinations -->
+<section class="mb-5">
+
+    <div class="d-flex justify-content-between align-items-center
+                flex-wrap gap-2 mb-4">
+        <div>
+            <span class="text-primary fw-semibold">FIND YOUR ESCAPE</span>
+            <h2 class="fw-bold mb-1">Featured Destinations</h2>
+            <p class="text-secondary mb-0">
+                Discover beautiful places to explore.
+            </p>
+        </div>
+
+        <a href="{{ url_for('main.destinations') }}"
+           class="btn btn-outline-primary">
+            View Destinations
+        </a>
+    </div>
+
+    {% if destinations %}
+    <div class="row g-4">
+
+        {% for destination in destinations[:6] %}
+        <div class="col-sm-6 col-lg-4">
+
+            <div class="card destination-card h-100 border-0 shadow-sm">
+                <div class="destination-icon">
+                    <i class="bi bi-geo-alt-fill"></i>
+                </div>
+
+                <div class="card-body p-4">
+                    <h5 class="fw-bold">{{ destination.name }}</h5>
+
+                    <p class="text-secondary mb-2">
+                        <i class="bi bi-pin-map me-1"></i>
+                        {{ destination.city }}, {{ destination.country }}
+                    </p>
+
+                    <p class="text-secondary small">
+                        {{ destination.description or
+                           "Discover this wonderful destination with TravelEase." }}
+                    </p>
+
+                    {% if destination.best_time %}
+                    <p class="small mb-0">
+                        <i class="bi bi-calendar-event text-primary me-1"></i>
+                        <strong>Best time:</strong> {{ destination.best_time }}
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+    <p class="text-secondary">Destinations will appear here when available.</p>
+    {% endif %}
+
+</section>
+
+<!-- Popular Packages -->
+<section class="mb-5">
+
+    <div class="d-flex justify-content-between align-items-center
+                flex-wrap gap-2 mb-4">
+        <div>
+            <span class="text-primary fw-semibold">TRAVEL YOUR WAY</span>
+            <h2 class="fw-bold mb-1">Popular Tour Packages</h2>
+            <p class="text-secondary mb-0">
+                Find a trip that matches your next adventure.
+            </p>
+        </div>
+
+        <a href="{{ url_for('main.packages') }}"
+           class="btn btn-outline-primary">
+            View All Packages
+        </a>
+    </div>
+
+    {% if packages %}
+    <div class="row g-4">
+
+        {% for package in packages[:6] %}
+        <div class="col-sm-6 col-lg-4">
+
+            <div class="card package-home-card h-100 border-0 shadow-sm">
+                <div class="package-home-icon">
+                    <i class="bi bi-suitcase2-fill"></i>
+                </div>
+
+                <div class="card-body d-flex flex-column p-4">
+
+                    <h5 class="fw-bold">{{ package.name }}</h5>
+
+                    <p class="text-secondary small">
+                        {{ package.description }}
+                    </p>
+
+                    <div class="d-flex justify-content-between
+                                text-secondary small mb-3">
+                        <span>
+                            <i class="bi bi-calendar3 me-1"></i>
+                            {{ package.duration_days }} days
+                        </span>
+
+                        <span>
+                            <i class="bi bi-people me-1"></i>
+                            Up to {{ package.max_people }}
+                        </span>
+                    </div>
+
+                    <div class="mt-auto border-top pt-3">
+                        <div class="d-flex justify-content-between
+                                    align-items-center">
+                            <div>
+                                <small class="text-secondary d-block">
+                                    Starting from
+                                </small>
+                                <span class="fs-4 fw-bold text-primary">
+                                    ₹{{ "%.2f"|format(package.price|float) }}
+                                </span>
+                            </div>
+
+                            <a href="{{ url_for('main.package_detail',
+                                                 package_id=package.id) }}"
+                               class="btn btn-primary">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+    <p class="text-secondary">Tour packages will appear here when available.</p>
+    {% endif %}
+
+</section>
+
+<!-- Why Choose TravelEase -->
+<section class="why-travel-section rounded-4 p-4 p-md-5 mb-4">
+
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Why Choose TravelEase?</h2>
+        <p class="text-secondary">
+            Everything you need to plan your journey in one place.
+        </p>
+    </div>
+
+    <div class="row g-4 text-center">
+
+        <div class="col-md-4">
+            <i class="bi bi-compass feature-icon"></i>
+            <h5 class="fw-bold mt-3">Discover Places</h5>
+            <p class="text-secondary">
+                Explore destinations and find adventures for your next trip.
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <i class="bi bi-calendar-check feature-icon"></i>
+            <h5 class="fw-bold mt-3">Plan Your Journey</h5>
+            <p class="text-secondary">
+                Organize your itineraries and manage your tour bookings.
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <i class="bi bi-person-check feature-icon"></i>
+            <h5 class="fw-bold mt-3">Travel with Confidence</h5>
+            <p class="text-secondary">
+                Find travel information, accommodation and guide listings.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

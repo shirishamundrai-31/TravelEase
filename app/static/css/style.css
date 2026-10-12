@@ -1,0 +1,1478 @@
+
+/* Tour packages page */
+
+.packages-hero {
+    background: linear-gradient(120deg, #10253f, #2458a6);
+}
+
+.packages-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: -1px;
+}
+
+.package-list-card {
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.package-list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(16, 37, 63, 0.12);
+}
+
+.package-cover {
+    min-height: 130px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e5efff, #d6f4f1);
+}
+
+.package-cover > span:first-child {
+    font-size: 55px;
+}
+
+@media (max-width: 576px) {
+    .packages-hero {
+        padding: 28px !important;
+    }
+}
+
+/* TravelEase homepage */
+
+.travel-hero {
+    background: linear-gradient(125deg, #10253f, #2458a6);
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.travel-hero h1 {
+    letter-spacing: -1px;
+}
+
+.hero-icon {
+    font-size: 100px;
+    margin-bottom: 15px;
+}
+
+.destination-card,
+.package-card {
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.destination-card:hover,
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(16, 37, 63, 0.12);
+}
+
+.destination-art {
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e5efff, #d6f4f1);
+    font-size: 55px;
+}
+
+.package-banner {
+    min-height: 100px;
+    background: linear-gradient(120deg, #e5efff, #d6f4f1);
+    padding: 18px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.package-emoji {
+    font-size: 38px;
+}
+
+.why-travel {
+    background: #eaf1fb;
+}
+
+.feature-icon {
+    font-size: 42px;
+    margin-bottom: 14px;
+}
+
+@media (max-width: 576px) {
+    .travel-hero {
+        min-height: auto;
+        padding: 28px !important;
+    }
+
+    .travel-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-icon {
+        font-size: 65px;
+    }
+}
+
+.package-detail-card,
+.booking-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(30, 50, 80, 0.07);
+}
+
+.package-detail-banner {
+    min-height: 170px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #dbeafe, #c7f9e9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #16345c;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.package-detail-banner span:first-child {
+    font-size: 3rem;
+}
+
+.detail-info {
+    background: #f4f8fc;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.detail-info small {
+    color: #64748b;
+}
+
+.detail-info h5 {
+    margin-top: 6px;
+    color: #176b55;
+    font-weight: 700;
+}
+
+.booking-card {
+    position: sticky;
+    top: 20px;
+}
+
+.booking-card .form-control {
+    padding: 11px;
+    border-radius: 9px;
+}
+
+.my-booking-card {
+    height: 100%;
+    background: #ffffff;
+    border: 1px solid #e4eaf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(30, 50, 80, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.my-booking-card:hover {
+    transform: translateY(-4px);
+}
+
+.booking-icon {
+    font-size: 2rem;
+}
+
+.booking-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #e0f2fe;
+    color: #075985;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.empty-bookings {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 18px;
+}
+
+.empty-bookings-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.booking-page-header h1 {
+    color: #17365d;
+}
+
+.hotels-hero {
+    background: linear-gradient(135deg, #dbeafe, #d1fae5);
+    border-radius: 20px;
+    color: #17365d;
+}
+
+.hotels-label {
+    color: #087f8c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hotel-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(30, 50, 80, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(30, 50, 80, 0.12);
+}
+
+.hotel-image {
+    height: 150px;
+    background: linear-gradient(135deg, #e0e7ff, #cffafe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel-image span {
+    font-size: 4rem;
+}
+
+.hotel-rating {
+    white-space: nowrap;
+    background: #fff7d6;
+    color: #805b00;
+    padding: 5px 9px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.hotel-price {
+    color: #087f5b;
+    font-weight: 800;
+}
+
+.empty-hotels {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 18px;
+}
+
+.empty-hotel-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.flights-hero {
+    background: linear-gradient(135deg, #dbeafe, #cffafe);
+    color: #17365d;
+    border-radius: 20px;
+}
+
+.flights-label {
+    color: #087f8c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.flight-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(30, 50, 80, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.flight-card:hover {
+    transform: translateY(-3px);
+}
+
+.flight-route {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.flight-route h5 {
+    overflow-wrap: anywhere;
+}
+
+.flight-arrow {
+    color: #087f8c;
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.flight-price {
+    color: #087f5b;
+}
+
+.empty-flights {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 18px;
+}
+
+.empty-flight-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 576px) {
+    .flight-route {
+        flex-wrap: wrap;
+    }
+}
+
+.itinerary-hero {
+    background: linear-gradient(135deg, #dbeafe, #d1fae5);
+    color: #17365d;
+    border-radius: 20px;
+}
+
+.itinerary-label {
+    color: #087f8c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.itinerary-card,
+.form-itinerary-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(30, 50, 80, 0.06);
+}
+
+.itinerary-card {
+    transition: transform 0.2s ease;
+}
+
+.itinerary-card:hover {
+    transform: translateY(-4px);
+}
+
+.itinerary-icon,
+.empty-itinerary-icon {
+    font-size: 3rem;
+}
+
+.itinerary-notes {
+    background: #f4f8fc;
+    padding: 14px;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+}
+
+.empty-itineraries {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 18px;
+}
+
+.form-itinerary-card {
+    max-width: 700px;
+}
+
+.form-itinerary-card .form-control {
+    padding: 11px;
+    border-radius: 9px;
+}
+
+.guides-hero {
+    background: linear-gradient(135deg, #dbeafe, #d1fae5);
+    color: #17365d;
+    border-radius: 20px;
+}
+
+.guides-label {
+    color: #087f8c;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.guide-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(30, 50, 80, 0.06);
+    transition: transform 0.2s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-4px);
+}
+
+.guide-avatar {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #e0f2fe;
+    font-size: 2.5rem;
+}
+
+.empty-guides {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 18px;
+}
+
+.empty-guide-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.dashboard-hero {
+    background: linear-gradient(135deg, #dbeafe, #d1fae5);
+    color: #17365d;
+    border-radius: 20px;
+}
+
+.dashboard-stat {
+    height: 100%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(30, 50, 80, 0.05);
+}
+
+.dashboard-stat span {
+    font-size: 2rem;
+}
+
+.dashboard-stat h3 {
+    margin-top: 12px;
+    font-weight: 800;
+    color: #087f8c;
+}
+
+.dashboard-stat p {
+    color: #64748b;
+}
+
+.dashboard-link {
+    display: block;
+    height: 100%;
+    padding: 22px;
+    text-decoration: none;
+    color: #17365d;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(30, 50, 80, 0.1);
+    color: #087f8c;
+}
+
+.dashboard-link span {
+    font-size: 2rem;
+}
+
+.dashboard-link h5 {
+    margin-top: 12px;
+    font-weight: 700;
+}
+
+.dashboard-link p {
+    margin-bottom: 0;
+    color: #64748b;
+}
+
+.empty-dashboard {
+    background: #f5f9ff;
+    border: 1px dashed #b8c8dc;
+    border-radius: 16px;
+}
+
+/* TravelEase package cards */
+.package-card {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.package-card .card-title {
+    color: #172554;
+}
+
+.package-card .card-body {
+    min-height: 290px;
+}
+
+@media (max-width: 576px) {
+    .package-card .card-body {
+        min-height: auto;
+    }
+}
+
+/* TravelEase hotel listing cards */
+.hotel-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.hotel-banner {
+    min-height: 145px;
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1d4ed8;
+}
+
+.hotel-card .card-body {
+    min-height: 245px;
+}
+
+@media (max-width: 576px) {
+    .hotel-card .card-body {
+        min-height: auto;
+    }
+}
+
+/* TravelEase flight cards */
+.flight-card {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.flight-card h5 {
+    color: #172554;
+}
+
+.flight-card .btn.disabled {
+    opacity: 0.75;
+    cursor: default;
+}
+
+@media (max-width: 576px) {
+    .flight-card .card-body {
+        padding: 1rem !important;
+    }
+
+    .flight-card h5 {
+        font-size: 1rem;
+    }
+}
+
+/* TravelEase tour guide cards */
+.guide-card {
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.guide-avatar {
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+}
+
+.guide-avatar-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    font-size: 3rem;
+}
+
+.guide-card h5 {
+    color: #172554;
+}
+
+.guide-info {
+    overflow-wrap: anywhere;
+    font-size: 0.94rem;
+}
+
+.guide-info p {
+    line-height: 1.6;
+}
+
+.guide-card .btn {
+    border-radius: 10px;
+}
+
+/* TravelEase home page */
+.travel-hero {
+    background:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.88),
+        rgba(15, 23, 42, 0.25)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    line-height: 1.15;
+}
+
+.quick-link-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 115px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #1e3a8a;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-link-card i {
+    font-size: 1.8rem;
+    color: #2563eb;
+}
+
+.quick-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+    color: #1d4ed8;
+}
+
+.destination-card,
+.package-home-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.destination-card:hover,
+.package-home-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12) !important;
+}
+
+.destination-icon,
+.package-home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 115px;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    color: #2563eb;
+    font-size: 2.7rem;
+}
+
+.package-home-icon {
+    background: linear-gradient(135deg, #d1fae5, #ecfdf5);
+    color: #047857;
+}
+
+.destination-card .card-body,
+.package-home-card .card-body {
+    overflow-wrap: anywhere;
+}
+
+.why-travel-section {
+    background: #f1f5f9;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+}
+
+@media (max-width: 576px) {
+    .hero-overlay {
+        min-height: 360px;
+        padding: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-content .lead {
+        font-size: 1rem;
+    }
+
+    .quick-link-card {
+        min-height: 100px;
+        font-size: 0.9rem;
+    }
+}
+
+/* TravelEase itinerary form */
+.itinerary-form-card {
+    border-radius: 18px;
+}
+
+.itinerary-form-card .form-control {
+    min-height: 46px;
+    border-radius: 10px;
+    border-color: #cbd5e1;
+}
+
+.itinerary-form-card textarea.form-control {
+    min-height: 120px;
+}
+
+.itinerary-form-card .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.12);
+}
+
+.itinerary-form-card .btn {
+    border-radius: 10px;
+}
+
+/* TravelEase itinerary cards */
+.itinerary-card {
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.itinerary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12) !important;
+}
+
+.itinerary-card-banner {
+    min-height: 115px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff);
+    color: #2563eb;
+    font-size: 2.8rem;
+}
+
+.itinerary-card h5 {
+    color: #172554;
+    overflow-wrap: anywhere;
+}
+
+.itinerary-date-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.itinerary-notes {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.empty-itinerary {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 18px;
+}
+
+/* TravelEase booking history */
+.booking-card {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10) !important;
+}
+
+.booking-card h5 {
+    color: #172554;
+    overflow-wrap: anywhere;
+}
+
+.booking-total {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+}
+
+.empty-bookings {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 18px;
+}
+
+/* TravelEase user dashboard */
+.dashboard-welcome {
+    background: linear-gradient(120deg, #1d4ed8, #2563eb, #0f766e);
+    color: white;
+}
+
+.dashboard-welcome h1 {
+    overflow-wrap: anywhere;
+}
+
+.dashboard-stat {
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dashboard-stat-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.dashboard-action {
+    height: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    padding: 1.25rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #172554;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-action > i {
+    color: #2563eb;
+    font-size: 1.8rem;
+}
+
+.dashboard-action > span {
+    font-weight: 700;
+}
+
+.dashboard-action > small {
+    color: #64748b;
+}
+
+.dashboard-action:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    color: #1d4ed8;
+}
+
+.dashboard-recent-card {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.dashboard-recent-card table th {
+    color: #475569;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .dashboard-welcome {
+        padding: 1.5rem !important;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 1.8rem;
+    }
+
+    .dashboard-action {
+        min-height: 130px;
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+   TRAVELEASE - PROFESSIONAL PACKAGE DESIGN
+======================================== */
+
+.packages-hero {
+    padding: 65px 0 75px;
+    color: #ffffff;
+    text-align: center;
+    background: linear-gradient(135deg, #102a56, #1769aa, #2585c5);
+}
+
+.packages-eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 8px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.packages-hero h1 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.packages-hero h1 span {
+    color: #a9e1ff;
+}
+
+.packages-hero p {
+    margin: 0;
+    color: #e3efff;
+    font-size: 17px;
+}
+
+.packages-page {
+    min-height: 400px;
+}
+
+.package-filter-panel {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(24, 54, 91, 0.07);
+}
+
+.package-filter-panel .form-label {
+    color: #24344d;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.package-filter-panel .form-control,
+.package-filter-panel .form-select,
+.package-filter-panel .input-group-text {
+    min-height: 46px;
+    border-color: #dce4ef;
+}
+
+.package-filter-panel .form-control:focus,
+.package-filter-panel .form-select:focus {
+    border-color: #3985ed;
+    box-shadow: 0 0 0 3px rgba(57, 133, 237, 0.12);
+}
+
+.package-filter-btn {
+    min-height: 46px;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.package-clear-link {
+    color: #326bc0;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.package-clear-link:hover {
+    text-decoration: underline;
+}
+
+.package-section-title {
+    color: #172b4d;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.package-result-label {
+    padding: 9px 13px;
+    color: #34516f;
+    background: #edf5ff;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.package-card {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e7edf5;
+    border-radius: 17px;
+    box-shadow: 0 5px 20px rgba(28, 48, 75, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(28, 48, 75, 0.13);
+}
+
+.package-image-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #e8eef7;
+}
+
+.package-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.package-card:hover .package-image {
+    transform: scale(1.06);
+}
+
+.package-image-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 8px 12px;
+    color: #183657;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.package-card-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    padding: 22px;
+}
+
+.package-card-title {
+    margin-bottom: 8px;
+    color: #172b4d;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.package-location {
+    margin-bottom: 0;
+    color: #687a90;
+    font-size: 13px;
+}
+
+.package-location i {
+    color: #2878d4;
+}
+
+.package-description {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.package-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 13px 0;
+    color: #52647a;
+    border-top: 1px solid #edf0f5;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 12px;
+}
+
+.package-info-row i {
+    margin-right: 4px;
+    color: #2878d4;
+}
+
+.package-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.package-price-caption {
+    display: block;
+    color: #738198;
+    font-size: 11px;
+}
+
+.package-price {
+    margin: 3px 0;
+    color: #1769aa;
+    font-size: 22px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.package-view-btn {
+    padding: 10px 13px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.package-empty-state {
+    padding: 65px 20px;
+    background: #f7faff;
+    border: 1px dashed #cbd8e8;
+    border-radius: 18px;
+}
+
+.package-empty-state > i {
+    color: #7b9bc4;
+    font-size: 48px;
+}
+
+.package-empty-state h3 {
+    margin-top: 15px;
+    color: #172b4d;
+    font-weight: 800;
+}
+
+.package-empty-state p {
+    color: #687a90;
+}
+
+@media (max-width: 576px) {
+    .packages-hero {
+        padding: 45px 15px 50px;
+    }
+
+    .packages-hero p {
+        font-size: 14px;
+    }
+
+    .package-filter-panel {
+        padding: 17px;
+    }
+
+    .package-image-wrap {
+        height: 200px;
+    }
+
+    .package-card-body {
+        padding: 18px;
+    }
+
+    .package-card-footer {
+        align-items: flex-start;
+    }
+
+    .package-view-btn {
+        padding: 10px;
+    }
+}
+
+/* ========================================
+   TRAVELEASE - DESTINATIONS PAGE
+======================================== */
+
+.destinations-hero {
+    padding: 65px 0 75px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(135deg, #102a56, #1769aa, #2585c5);
+}
+
+.destinations-eyebrow {
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 8px 15px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.destinations-hero h1 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 800;
+}
+
+.destinations-hero h1 span {
+    color: #a9e1ff;
+}
+
+.destinations-hero > .container > p {
+    margin-bottom: 28px;
+    color: #e3efff;
+    font-size: 16px;
+}
+
+.destination-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(100%, 680px);
+    margin: 0 auto;
+    padding: 8px 9px 8px 18px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.16);
+}
+
+.destination-search > i {
+    color: #54708d;
+    font-size: 20px;
+}
+
+.destination-search input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    color: #172b4d;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+.destination-search input:focus {
+    box-shadow: none;
+}
+
+.destination-search button {
+    padding: 12px 23px;
+    color: #fff;
+    background: #1769aa;
+    border: 0;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+.destination-search button:hover {
+    background: #10548c;
+}
+
+.destinations-page {
+    min-height: 400px;
+}
+
+.destination-section-title {
+    color: #172b4d;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.destination-count {
+    padding: 9px 13px;
+    color: #34516f;
+    background: #edf5ff;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.destination-card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e7edf5;
+    border-radius: 17px;
+    box-shadow: 0 5px 20px rgba(28,48,75,.06);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(28,48,75,.13);
+}
+
+.destination-image-wrap {
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+    background: #e8eef7;
+}
+
+.destination-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .45s ease;
+}
+
+.destination-card:hover .destination-image {
+    transform: scale(1.05);
+}
+
+.destination-image-label {
+    position: absolute;
+    bottom: 13px;
+    left: 13px;
+    padding: 8px 12px;
+    color: #183657;
+    background: rgba(255,255,255,.95);
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.destination-card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.destination-card-body h3 {
+    margin-bottom: 7px;
+    color: #172b4d;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.destination-city {
+    margin-bottom: 14px;
+    color: #687a90;
+    font-size: 13px;
+}
+
+.destination-city i {
+    color: #2878d4;
+}
+
+.destination-description {
+    margin-bottom: 18px;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.destination-best-time {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 20px;
+    padding: 12px;
+    color: #52647a;
+    background: #f4f8fd;
+    border-radius: 10px;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.destination-best-time > i {
+    color: #2878d4;
+    font-size: 19px;
+}
+
+.destination-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 12px 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.destination-empty-state {
+    padding: 65px 20px;
+    background: #f7faff;
+    border: 1px dashed #cbd8e8;
+    border-radius: 18px;
+}
+
+.destination-empty-state > i {
+    color: #7b9bc4;
+    font-size: 48px;
+}
+
+.destination-empty-state h3 {
+    margin-top: 15px;
+    color: #172b4d;
+    font-weight: 800;
+}
+
+.destination-empty-state p {
+    color: #687a90;
+}
+
+@media (max-width: 576px) {
+    .destinations-hero {
+        padding: 45px 15px 50px;
+    }
+
+    .destination-search {
+        gap: 8px;
+        padding-left: 12px;
+    }
+
+    .destination-search input {
+        font-size: 13px;
+    }
+
+    .destination-search button {
+        padding: 11px 13px;
+    }
+
+    .destination-image-wrap {
+        height: 200px;
+    }
+
+    .destination-card-body {
+        padding: 18px;
+    }
+}
